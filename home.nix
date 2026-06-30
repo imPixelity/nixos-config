@@ -5,9 +5,12 @@
   home.stateVersion = "26.05";
 
   home.packages = with pkgs; [
-    fastfetch
     wget
+    btop
+    curl
+    tree
     unzip
+    fastfetch
   ];
 
   programs.firefox.enable = true;

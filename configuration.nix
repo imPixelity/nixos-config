@@ -14,6 +14,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "nixos";
+  networking.firewall.enable = true;
   networking.networkmanager.enable = true;
 
   time.timeZone = "Asia/Jakarta";
@@ -31,10 +32,24 @@
     ];
   };
 
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
+  nix.settings = {
+    experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
+    auto-optimise-store = true;
+  };
+
+  nix.optimise = {
+    automatic = true;
+    dates = "weekly";
+  };
+
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 30d";
+  };
 
   programs.niri.enable = true;
   programs.zsh.enable = true;
