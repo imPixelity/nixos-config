@@ -56,6 +56,9 @@
     enableCompletion = true;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
+    shellAliases = {
+      ff = "fastfetch";
+    };
     history = {
       size = 10000;
       save = 10000;
@@ -63,12 +66,11 @@
       path = "$HOME/.zsh_history";
       share = true;
     };
-    initContent = ''
-      eval "$(starship init zsh)"
-    '';
   };
   programs.starship = {
     enable = true;
+    enableZshIntegration = true;
+    presets = [ "plain-text-symbols" ];
   };
   programs.git = {
     enable = true;
