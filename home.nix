@@ -34,6 +34,7 @@
     prefix = "C-a";
     mouse = true;
     keyMode = "vi";
+    terminal = "tmux-256color";
     extraConfig = ''
       bind -n M-1 select-window -t 1
       bind -n M-2 select-window -t 2
@@ -84,4 +85,5 @@
     };
   };
   programs.qutebrowser.enable = true;
+  programs.ghostty.enable = true;
 }
