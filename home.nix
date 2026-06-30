@@ -5,14 +5,26 @@
   home.stateVersion = "26.05";
 
   home.packages = with pkgs; [
-    vim
     fastfetch
     wget
+    unzip
   ];
 
   programs.firefox.enable = true;
   programs.alacritty.enable = true;
   programs.fuzzel.enable = true;
+  programs.vim = {
+    enable = true;
+    settings = {
+      relativenumber = true;
+      shiftwidth = 2;
+      tabstop = 2;
+      expandtab = true;
+    };
+    extraConfig = ''
+      set clipboard=unnamedplus
+    '';
+  };
   programs.tmux = {
     enable = true;
     baseIndex = 1;
@@ -66,4 +78,5 @@
       core.editor = "vim";
     };
   };
+  programs.qutebrowser.enable = true;
 }

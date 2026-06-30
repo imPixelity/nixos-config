@@ -14,19 +14,21 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "nixos";
-
   networking.networkmanager.enable = true;
 
   time.timeZone = "Asia/Jakarta";
 
-  # services.printing.enable = true;
-
-  # services.libinput.enable = true;
+  fonts.packages = with pkgs; [
+    nerd-fonts.jetbrains-mono
+  ];
 
   users.users.photon = {
     isNormalUser = true;
     shell = pkgs.zsh;
-    extraGroups = [ "wheel" ];
+    extraGroups = [
+      "wheel"
+      "networkmanager"
+    ];
   };
 
   nix.settings.experimental-features = [
@@ -38,6 +40,10 @@
   programs.zsh.enable = true;
 
   services.openssh.enable = true;
+  # services.printing.enable = true;
+  # services.libinput.enable = true;
+
+  environment.variables.EDITOR = "vim";
 
   system.stateVersion = "26.05";
 
