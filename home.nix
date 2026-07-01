@@ -101,9 +101,21 @@
       font-family = "JetBrainsMono Nerd Font Mono";
       cursor-style = "block";
       cursor-style-blink = true;
-      # window-decoration = "none";
       confirm-close-surface = false;
       shell-integration-features = "no-cursor";
+      # window-decoration = "none";
     };
+  };
+
+  programs.eza = {
+    enable = true;
+    enableZshIntegration = true;
+    git = true;
+    icons = "auto";
+    extraOptions = [
+      "--group-directories-first"
+      "--classify"
+      "--header"
+    ];
   };
 }
