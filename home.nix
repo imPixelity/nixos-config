@@ -13,9 +13,11 @@
     fastfetch
   ];
 
+  programs.fuzzel.enable = true;
   programs.firefox.enable = true;
   programs.alacritty.enable = true;
-  programs.fuzzel.enable = true;
+  programs.qutebrowser.enable = true;
+
   programs.vim = {
     enable = true;
     settings = {
@@ -28,6 +30,7 @@
       set clipboard=unnamedplus
     '';
   };
+
   programs.tmux = {
     enable = true;
     baseIndex = 1;
@@ -36,6 +39,8 @@
     keyMode = "vi";
     terminal = "tmux-256color";
     extraConfig = ''
+      set -g renumber-windows on
+
       bind -n M-1 select-window -t 1
       bind -n M-2 select-window -t 2
       bind -n M-3 select-window -t 3
@@ -52,6 +57,7 @@
       unbind -T copy-mode-vi MouseDragEnd1Pane
     '';
   };
+
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -69,11 +75,13 @@
       share = true;
     };
   };
+
   programs.starship = {
     enable = true;
     enableZshIntegration = true;
     presets = [ "plain-text-symbols" ];
   };
+
   programs.git = {
     enable = true;
     settings = {
@@ -85,6 +93,17 @@
       core.editor = "vim";
     };
   };
-  programs.qutebrowser.enable = true;
-  programs.ghostty.enable = true;
+
+  programs.ghostty = {
+    enable = true;
+    enableZshIntegration = true;
+    settings = {
+      font-family = "JetBrainsMono Nerd Font Mono";
+      cursor-style = "block";
+      cursor-style-blink = true;
+      # window-decoration = "none";
+      confirm-close-surface = false;
+      shell-integration-features = "no-cursor";
+    };
+  };
 }
