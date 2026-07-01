@@ -13,6 +13,7 @@
     fastfetch
   ];
 
+  programs.bat.enable = true;
   programs.fuzzel.enable = true;
   programs.firefox.enable = true;
   programs.alacritty.enable = true;
@@ -66,6 +67,7 @@
     defaultKeymap = "emacs";
     shellAliases = {
       ff = "fastfetch";
+      cat = "bat";
     };
     history = {
       size = 10000;
@@ -118,4 +120,5 @@
       "--header"
     ];
   };
+
 }
