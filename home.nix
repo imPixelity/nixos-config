@@ -6,16 +6,17 @@
   home.stateVersion = "26.05";
 
   home.packages = with pkgs; [
+    fd
+    jq
     wget
     btop
     curl
     tree
     unzip
+    ripgrep
     fastfetch
   ];
 
-  programs.fd.enable = true;
-  programs.jq.enable = true;
   programs.fuzzel.enable = true;
   programs.firefox.enable = true;
   programs.alacritty.enable = true;
@@ -128,10 +129,16 @@
     config = {
       style = "plain";
       paging = "never";
+      color = "always";
     };
   };
 
   programs.zoxide = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
+  programs.fzf = {
     enable = true;
     enableZshIntegration = true;
   };
