@@ -1,4 +1,5 @@
 { config, pkgs, ... }:
+
 {
   home.username = "photon";
   home.homeDirectory = "/home/photon";
@@ -13,7 +14,8 @@
     fastfetch
   ];
 
-  programs.bat.enable = true;
+  programs.fd.enable = true;
+  programs.jq.enable = true;
   programs.fuzzel.enable = true;
   programs.firefox.enable = true;
   programs.alacritty.enable = true;
@@ -121,4 +123,11 @@
     ];
   };
 
+  programs.bat = {
+    enable = true;
+    config = {
+      style = "plain";
+      paging = "never";
+    };
+  };
 }
