@@ -130,4 +130,9 @@
       paging = "never";
     };
   };
+
+  programs.zoxide = {
+    enable = true;
+    enableZshIntegration = true;
+  };
 }
