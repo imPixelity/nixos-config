@@ -29,6 +29,7 @@
               useGlobalPkgs = true;
               useUserPackages = true;
               users.photon = import ./home.nix;
+              backupFileExtension = "backup";
             };
           }
         ];

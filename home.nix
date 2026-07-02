@@ -13,8 +13,11 @@
     curl
     tree
     unzip
+    neovim
     ripgrep
+    gnumake
     fastfetch
+    lua5_5_compat
   ];
 
   programs.fuzzel.enable = true;
@@ -165,4 +168,6 @@
       "--preview 'echo {}'"
     ];
   };
+
+  xdg.configFile."nvim".source = config.lib.file.mkOutOfStoreSymlink /home/photon/nixos-config/nvim;
 }
