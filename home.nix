@@ -141,5 +141,28 @@
   programs.fzf = {
     enable = true;
     enableZshIntegration = true;
+    defaultCommand = "fd --type f --hidden --follow --exclude .git";
+    defaultOptions = [
+      "--height 40%"
+      "--layout=reverse"
+      "--border"
+      "--preview 'bat --style=numbers --color=always --line-range :500 {}'"
+      "--preview-window=right:60%:wrap"
+    ];
+    fileWidgetCommand = "fd --type f --hidden --follow --exclude .git";
+    fileWidgetOptions = [
+      "--preview 'bat --style=numbers --color=always --line-range :500 {}'"
+      "--preview-window=right:60%:wrap"
+    ];
+    changeDirWidgetCommand = "fd --type d --hidden --exclude .git";
+    changeDirWidgetOptions = [
+      "--preview 'eza --tree --level=2 --icons=auto {}'"
+      "--preview-window=right:60%"
+    ];
+    historyWidgetOptions = [
+      "--sort"
+      "--exact"
+      "--preview 'echo {}'"
+    ];
   };
 }
