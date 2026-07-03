@@ -8,6 +8,7 @@
   home.packages = with pkgs; [
     fd
     jq
+    gcc
     wget
     btop
     curl
@@ -17,6 +18,7 @@
     ripgrep
     gnumake
     fastfetch
+    tree-sitter
     lua5_5_compat
   ];
 
