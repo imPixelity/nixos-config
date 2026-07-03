@@ -1,3 +1,4 @@
-require("options")
 require("globals")
+require("options")
 require("autocmds")
+require("keymaps")

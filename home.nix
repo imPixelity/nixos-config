@@ -14,11 +14,9 @@
     curl
     tree
     unzip
-    neovim
     ripgrep
     gnumake
     fastfetch
-    tree-sitter
     lua5_5_compat
   ];
 
@@ -171,5 +169,9 @@
     ];
   };
 
-  xdg.configFile."nvim".source = config.lib.file.mkOutOfStoreSymlink /home/photon/nixos-config/nvim;
+  programs.neovim = {
+    enable = true;
+  };
+
+  xdg.configFile."nvim".source = ./nvim;
 }
