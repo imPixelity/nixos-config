@@ -7,6 +7,8 @@
 }:
 
 {
+  imports = [ ./testdir ];
+
   home.username = "photon";
   home.homeDirectory = "/home/photon";
   home.stateVersion = "26.05";
@@ -29,7 +31,7 @@
 
   home.sessionVariables = {
     TestExtraSpecialArgs = testExtraSpecialArgs;
- };
+  };
 
   programs.fuzzel.enable = true;
   programs.firefox.enable = true;
@@ -181,12 +183,13 @@
   };
 
   /*
-  programs.neovim = {
-    enable = true;
-  };
+    programs.neovim = {
+      enable = true;
+    };
 
-  xdg.configFile."nvim".source = ./nvim;
+    xdg.configFile."nvim".source = ./nvim;
   */
 
-  xdg.configFile."nvim".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-config/nvim";
+  xdg.configFile."nvim".source =
+    config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-config/nvim";
 }

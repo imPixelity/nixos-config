@@ -18,7 +18,7 @@
       nixpkgs,
       home-manager,
       ...
-    }:
+    }@inputs:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
@@ -28,27 +28,31 @@
     {
       formatter.${system} = pkgs.nixfmt-tree;
 
-      nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-        inherit system;
+      nixosConfigurations = {
+        nixos = nixpkgs.lib.nixosSystem {
+          inherit system;
 
-        modules = [
-          ./configuration.nix
-          home-manager.nixosModules.home-manager
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              users.photon = import ./home.nix;
-              backupFileExtension = "backup";
-              extraSpecialArgs = {
-                inherit testExtraSpecialArgs;
+          modules = [
+            ./configuration.nix
+
+            home-manager.nixosModules.home-manager
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                users.photon = import ./home.nix;
+                backupFileExtension = "backup";
+
+                extraSpecialArgs = {
+                  inherit testExtraSpecialArgs;
+                };
               };
-            };
-          }
-        ];
+            }
+          ];
 
-        specialArgs = {
-          inherit testSpecialArgs;
+          specialArgs = {
+            inherit testSpecialArgs;
+          };
         };
       };
     };
