@@ -1,3 +1,3 @@
 {
-    imports = [ ./cowsay.nix ];
+  imports = [ ./cowsay.nix ];
 }
