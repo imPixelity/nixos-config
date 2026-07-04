@@ -1,4 +1,10 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  testSpecialArgs,
+  testExtraSpecialArgs,
+  ...
+}:
 
 {
   home.username = "photon";
@@ -14,11 +20,16 @@
     curl
     tree
     unzip
+    neovim
     ripgrep
     gnumake
     fastfetch
     lua5_5_compat
   ];
+
+  home.sessionVariables = {
+    TestExtraSpecialArgs = testExtraSpecialArgs;
+ };
 
   programs.fuzzel.enable = true;
   programs.firefox.enable = true;
@@ -169,9 +180,13 @@
     ];
   };
 
+  /*
   programs.neovim = {
     enable = true;
   };
 
   xdg.configFile."nvim".source = ./nvim;
+  */
+
+  xdg.configFile."nvim".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-config/nvim";
 }

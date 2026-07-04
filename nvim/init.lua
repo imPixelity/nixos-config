@@ -3,3 +3,5 @@ require("options")
 require("autocmds")
 require("keymaps")
 require("pack")
+
+vim.cmd.colorscheme("ayu")

@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  testSpecialArgs,
   ...
 }:
 
@@ -59,6 +60,7 @@
   # services.libinput.enable = true;
 
   environment.variables.EDITOR = "vim";
+  environment.variables.TestSpecialArgs = testSpecialArgs;
 
   system.stateVersion = "26.05";
 
