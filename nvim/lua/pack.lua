@@ -5,6 +5,7 @@ vim.pack.add({
     { src = gh("ayu-theme/ayu-vim") },
     { src = gh("nvim-mini/mini.nvim") },
     { src = gh("rafamadriz/friendly-snippets") },
+    { src = gh("neovim/nvim-lspconfig") },
 })
 
 local MiniFiles = require("mini.files")
@@ -21,7 +22,8 @@ MiniFiles.setup({
 })
 
 vim.keymap.set("n", "<leader>e", "<cmd>lua MiniFiles.open()<CR>", { desc = "Toggle mini file explorer" })
-vim.keymap.set("n", "<leader>E", function() MiniFiles.open(vim.api.nvim_buf_get_name(0), false) end, { desc = "Toggle mini file explorer to current opened file" })
+vim.keymap.set("n", "<leader>E", function() MiniFiles.open(vim.api.nvim_buf_get_name(0), false) end,
+    { desc = "Toggle mini file explorer to current opened file" })
 
 require("mini.notify").setup({
     content = {
@@ -43,7 +45,8 @@ MiniPick.setup()
 MiniExtra.setup()
 
 vim.keymap.set("n", "<leader>pf", function() MiniPick.builtin.files() end, { desc = "Mini file picker" })
-vim.keymap.set("n", "<leader>ps", function() MiniPick.builtin.grep({ pattern = vim.fn.expand("<cword>") }) end, { desc = "Mini grep" })
+vim.keymap.set("n", "<leader>ps", function() MiniPick.builtin.grep({ pattern = vim.fn.expand("<cword>") }) end,
+    { desc = "Mini grep" })
 vim.keymap.set("n", "<leader>vh", function() MiniPick.builtin.help() end, { desc = "Mini help" })
 
 vim.keymap.set("n", "<leader>xx", function() MiniExtra.pickers.diagnostic() end, { desc = "Mini picker diagnostic" })
@@ -51,5 +54,11 @@ vim.keymap.set("n", "<leader>pk", function() MiniExtra.pickers.keymaps() end, { 
 
 local MiniCompletion = require("mini.completion")
 MiniCompletion.setup()
---local MiniSnippets = require("mini.snippets")
---MiniSnippets.setup()
+
+local MiniSnippets = require("mini.snippets")
+MiniSnippets.setup({
+    snippets = {
+        MiniSnippets.gen_loader.from_lang(),
+    },
+})
+MiniSnippets.start_lsp_server({ match = false })

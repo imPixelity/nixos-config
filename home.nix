@@ -27,6 +27,8 @@
     gnumake
     fastfetch
     lua5_5_compat
+
+    lua-language-server
   ];
 
   home.sessionVariables = {
