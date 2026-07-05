@@ -41,6 +41,6 @@ vim.opt.undodir = vim.fn.stdpath("state") .. "/undo//"
 vim.opt.completeopt = "menuone,noselect,fuzzy,nosort"
 
 -- Behavior
-vim.opt.clipboard = "unnamedplus"
+vim.opt.clipboard:append("unnamedplus")
 vim.opt.mouse = "a"
 vim.opt.updatetime = 250

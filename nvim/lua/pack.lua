@@ -1,11 +1,8 @@
-local gh = function(x) return "https://github.com/" .. x end
-local cb = function(x) return "https://codeberg.org/" .. x end
-
 vim.pack.add({
-    { src = gh("ayu-theme/ayu-vim") },
-    { src = gh("nvim-mini/mini.nvim") },
-    { src = gh("rafamadriz/friendly-snippets") },
-    { src = gh("neovim/nvim-lspconfig") },
+    { src = "https://github.com/ayu-theme/ayu-vim" },
+    { src = "https://github.com/nvim-mini/mini.nvim" },
+    { src = "https://github.com/rafamadriz/friendly-snippets" },
+    { src = "https://github.com/neovim/nvim-lspconfig" },
 })
 
 local MiniFiles = require("mini.files")
