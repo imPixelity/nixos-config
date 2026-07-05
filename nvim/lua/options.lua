@@ -38,6 +38,10 @@ vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.undodir = vim.fn.stdpath("state") .. "/undo//"
 
+-- Completion
+vim.opt.completeopt = "menuone,noselect,fuzzy,nosort"
+--vim.opt.shortmess:append("c")
+
 -- Behavior
 vim.opt.clipboard = "unnamedplus"
 vim.opt.mouse = "a"
