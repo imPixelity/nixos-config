@@ -30,7 +30,6 @@ vim.opt.colorcolumn = "100"
 vim.opt.signcolumn = "yes"
 vim.opt.termguicolors = true
 vim.opt.cursorline = true
-vim.opt.cmdheight = 0
 
 -- File
 vim.opt.undofile = true
@@ -40,7 +39,6 @@ vim.opt.undodir = vim.fn.stdpath("state") .. "/undo//"
 
 -- Completion
 vim.opt.completeopt = "menuone,noselect,fuzzy,nosort"
---vim.opt.shortmess:append("c")
 
 -- Behavior
 vim.opt.clipboard = "unnamedplus"

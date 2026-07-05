@@ -52,8 +52,7 @@ vim.keymap.set("n", "<leader>vh", function() MiniPick.builtin.help() end, { desc
 vim.keymap.set("n", "<leader>xx", function() MiniExtra.pickers.diagnostic() end, { desc = "Mini picker diagnostic" })
 vim.keymap.set("n", "<leader>pk", function() MiniExtra.pickers.keymaps() end, { desc = "Search keymaps" })
 
-local MiniCompletion = require("mini.completion")
-MiniCompletion.setup()
+require("mini.completion").setup()
 
 local MiniSnippets = require("mini.snippets")
 MiniSnippets.setup({
@@ -62,3 +61,8 @@ MiniSnippets.setup({
     },
 })
 MiniSnippets.start_lsp_server({ match = false })
+
+local MiniDiff = require("mini.diff")
+MiniDiff.setup({
+    source = MiniDiff.gen_source.git({ index = false }),
+})
