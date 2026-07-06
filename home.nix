@@ -38,7 +38,6 @@
   programs.fuzzel.enable = true;
   programs.zathura.enable = true;
   programs.firefox.enable = true;
-  programs.alacritty.enable = true;
   programs.qutebrowser.enable = true;
 
   programs.noctalia = {
