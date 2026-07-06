@@ -8,6 +8,10 @@
       url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    noctalia = {
+      url = "github:noctalia-dev/noctalia/cachix";
+    };
   };
 
   outputs =
@@ -15,13 +19,12 @@
       self,
       nixpkgs,
       home-manager,
+      noctalia,
       ...
     }@inputs:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
-      testSpecialArgs = "i am special args";
-      testExtraSpecialArgs = "i am extra special args";
     in
     {
       formatter.${system} = pkgs.nixfmt-tree;
@@ -29,6 +32,8 @@
       nixosConfigurations = {
         nixos = nixpkgs.lib.nixosSystem {
           inherit system;
+
+          specialArgs = { inherit inputs; };
 
           modules = [
             ./configuration.nix
@@ -40,17 +45,10 @@
                 useUserPackages = true;
                 users.photon = import ./home.nix;
                 backupFileExtension = "backup";
-
-                extraSpecialArgs = {
-                  inherit testExtraSpecialArgs;
-                };
+                extraSpecialArgs = { inherit inputs; };
               };
             }
           ];
-
-          specialArgs = {
-            inherit testSpecialArgs;
-          };
         };
       };
     };

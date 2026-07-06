@@ -2,7 +2,6 @@
   config,
   lib,
   pkgs,
-  testSpecialArgs,
   ...
 }:
 
@@ -28,6 +27,8 @@
 
   time.timeZone = "Asia/Jakarta";
 
+  hardware.bluetooth.enable = true;
+
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
   ];
@@ -47,6 +48,10 @@
       "flakes"
     ];
     auto-optimise-store = true;
+    extra-substituters = [ "https://noctalia.cachix.org" ];
+    extra-trusted-public-keys = [
+      "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
+    ];
   };
 
   nix.optimise = {
@@ -63,12 +68,16 @@
   programs.niri.enable = true;
   programs.zsh.enable = true;
 
+  services.upower.enable = true;
   services.openssh.enable = true;
+  services.gnome.gnome-keyring.enable = true;
+  services.power-profiles-daemon.enable = true;
   # services.printing.enable = true;
   # services.libinput.enable = true;
 
+  security.polkit.enable = true;
+
   environment.variables.EDITOR = "vim";
-  environment.variables.TestSpecialArgs = testSpecialArgs;
 
   system.stateVersion = "26.05";
 

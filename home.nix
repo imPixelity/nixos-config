@@ -1,13 +1,14 @@
 {
+  inputs,
   config,
   pkgs,
-  testSpecialArgs,
-  testExtraSpecialArgs,
   ...
 }:
 
 {
-  imports = [ ./testdir ];
+  imports = [
+    inputs.noctalia.homeModules.default
+  ];
 
   home.username = "photon";
   home.homeDirectory = "/home/photon";
@@ -32,14 +33,17 @@
     lua-language-server
   ];
 
-  home.sessionVariables = {
-    TestExtraSpecialArgs = testExtraSpecialArgs;
-  };
-
   programs.fuzzel.enable = true;
   programs.firefox.enable = true;
   programs.alacritty.enable = true;
   programs.qutebrowser.enable = true;
+
+  programs.noctalia = {
+    enable = true;
+
+    wallpaper.enabled = true;
+    wallpaper.default.path = "${config.home.homeDirectory}/walls/walls.png";
+  };
 
   programs.vim = {
     enable = true;
