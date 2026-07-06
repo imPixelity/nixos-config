@@ -26,14 +26,17 @@
     neovim
     ripgrep
     gnumake
+    nautilus
     fastfetch
     lua5_5_compat
     jetbrains.phpstorm
+    xwayland-satellite
 
     lua-language-server
   ];
 
   programs.fuzzel.enable = true;
+  programs.zathura.enable = true;
   programs.firefox.enable = true;
   programs.alacritty.enable = true;
   programs.qutebrowser.enable = true;
@@ -41,8 +44,10 @@
   programs.noctalia = {
     enable = true;
 
-    wallpaper.enabled = true;
-    wallpaper.default.path = "${config.home.homeDirectory}/walls/walls.png";
+    settings = {
+      wallpaper.enabled = true;
+      wallpaper.default.path = "${config.home.homeDirectory}/walls/walls.png";
+    };
   };
 
   programs.vim = {
@@ -189,14 +194,11 @@
     ];
   };
 
-  /*
-    programs.neovim = {
-      enable = true;
-    };
-
-    xdg.configFile."nvim".source = ./nvim;
-  */
-
+  # xdg.configFile."nvim".source = ./nvim;
   xdg.configFile."nvim".source =
     config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-config/nvim";
+
+  # xdg.configFile."niri/config.kdl".source = ./niri/config.kdl;
+  xdg.configFile."niri/config.kdl".source =
+    config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-config/niri/config.kdl";
 }
