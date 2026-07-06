@@ -20,6 +20,12 @@
   networking.firewall.enable = true;
   networking.networkmanager.enable = true;
 
+  nixpkgs.config.allowUnfreePredicate =
+    pkg:
+    builtins.elem (lib.getName pkg) [
+      "phpstorm"
+    ];
+
   time.timeZone = "Asia/Jakarta";
 
   fonts.packages = with pkgs; [

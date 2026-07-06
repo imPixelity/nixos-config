@@ -27,6 +27,7 @@
     gnumake
     fastfetch
     lua5_5_compat
+    jetbrains.phpstorm
 
     lua-language-server
   ];
