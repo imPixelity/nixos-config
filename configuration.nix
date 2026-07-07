@@ -88,6 +88,11 @@
     jack.enable = true;
   };
 
+  # Lenovo Thinkpad F4 Microphone LED problem
+  services.udev.extraRules = ''
+    SUBSYSTEM=="leds", KERNEL=="platform::micmute", RUN+="${pkgs.coreutils}/bin/chmod 666 /sys/class/leds/platform::micmute/brightness"
+  '';
+
   security.polkit.enable = true;
   security.rtkit.enable = true;
 

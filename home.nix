@@ -10,6 +10,38 @@
     inputs.noctalia.homeModules.default
   ];
 
+  # Lenovo Thinkpad F4 Microphone LED problem
+  systemd.user.services.micled-sync = {
+    Unit = {
+      Description = "Sync micmute LED with PipeWire mute state";
+      After = [
+        "pipewire.service"
+        "wireplumber.service"
+      ];
+    };
+    Install.WantedBy = [ "graphical-session.target" ];
+    Service = {
+      ExecStart = "${pkgs.writeShellScript "micled-sync" ''
+        LED=/sys/class/leds/platform::micmute/brightness
+        sync_led() {
+          if ${pkgs.wireplumber}/bin/wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | grep -q MUTED; then
+            echo 1 > "$LED"
+          else
+            echo 0 > "$LED"
+          fi
+        }
+        sync_led
+        ${pkgs.pulseaudio}/bin/pactl subscribe | while read -r line; do
+          case "$line" in
+            *"change"*"source"*) sync_led ;;
+          esac
+        done
+      ''}";
+      Restart = "on-failure";
+      RestartSec = 2;
+    };
+  };
+
   home.username = "photon";
   home.homeDirectory = "/home/photon";
   home.stateVersion = "26.05";
