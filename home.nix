@@ -75,16 +75,7 @@
 
   programs.noctalia = {
     enable = true;
-
-    settings = {
-      theme = {
-        templates.user."nvim-base16" = {
-          input_path = "$XDG_CONFIG_HOME/nvim/lua/matugen-template.lua";
-          output_path = "$XDG_CONFIG_HOME/nvim/lua/matugen.lua";
-          post_hook = "pkill -SIGUSR1 nvim";
-        };
-      };
-    };
+    settings = ./noctalia/noctalia-config.toml;
   };
 
   programs.vim = {

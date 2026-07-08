@@ -231,10 +231,6 @@ binds {
     Mod+V       { toggle-window-floating; }
     Mod+Shift+V { switch-focus-between-floating-and-tiling; }
 
-    Print { screenshot; }
-    Ctrl+Print { screenshot-screen; }
-    Alt+Print { screenshot-window; }
-
     Mod+Shift+E { quit; }
     Ctrl+Alt+Delete { quit; }
 
@@ -256,6 +252,8 @@ binds {
     Mod+P { spawn-sh "noctalia msg panel-toggle clipboard"; }
     Mod+W { spawn-sh "noctalia msg panel-toggle wallpaper"; }
     Mod+Shift+W { spawn-sh "noctalia msg wallpaper-random"; }
+    Print { spawn-sh "noctalia msg screenshot-region"; }
+    Shift+Print { spawn-sh "noctalia msg screenshot-fullscreen"; }
 }
 
 include "noctalia.kdl"
