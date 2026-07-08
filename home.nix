@@ -65,7 +65,6 @@
     firefox
     zathura
     nautilus
-    fastfetch
     qutebrowser
     tree-sitter
     lua5_5_compat
@@ -81,6 +80,8 @@
     enable = true;
     settings = ./noctalia/noctalia-config.toml;
   };
+
+  programs.fastfetch.enable = true;
 
   programs.vim = {
     enable = true;
@@ -224,4 +225,6 @@
   # xdg.configFile."niri/config.kdl".source = ./niri/config.kdl;
   xdg.configFile."niri/config.kdl".source =
     config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-config/niri/config.kdl";
+
+  xdg.configFile."fastfetch/config.jsonc".source = ./fastfetch/config.jsonc;
 }
