@@ -23,6 +23,7 @@
     pkg:
     builtins.elem (lib.getName pkg) [
       "phpstorm"
+      "discord"
     ];
 
   time.timeZone = "Asia/Jakarta";

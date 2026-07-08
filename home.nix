@@ -61,6 +61,7 @@
     ghostty
     ripgrep
     gnumake
+    discord
     firefox
     zathura
     nautilus
@@ -71,6 +72,8 @@
     xwayland-satellite
 
     lua-language-server
+
+    inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
   programs.noctalia = {
@@ -100,6 +103,10 @@
     terminal = "tmux-256color";
     extraConfig = ''
       set -g renumber-windows on
+      set -g status-position top
+      set -g status-justify absolute-centre
+      set -g status-left ""
+      set -g status-right ""
 
       bind -n M-1 select-window -t 1
       bind -n M-2 select-window -t 2
