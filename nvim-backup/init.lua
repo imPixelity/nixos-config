@@ -1,7 +1,0 @@
-require("globals")
-require("options")
-require("autocmds")
-require("keymaps")
-require("pack")
-require("lsp")
-require('matugen').setup()
