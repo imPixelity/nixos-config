@@ -58,10 +58,14 @@
     tree
     unzip
     neovim
+    ghostty
     ripgrep
     gnumake
+    firefox
+    zathura
     nautilus
     fastfetch
+    qutebrowser
     lua5_5_compat
     jetbrains.phpstorm
     xwayland-satellite
@@ -69,16 +73,17 @@
     lua-language-server
   ];
 
-  programs.zathura.enable = true;
-  programs.firefox.enable = true;
-  programs.qutebrowser.enable = true;
-
   programs.noctalia = {
     enable = true;
 
     settings = {
-      wallpaper.enabled = true;
-      wallpaper.default.path = "${config.home.homeDirectory}/walls/walls.png";
+      theme = {
+        templates.user."nvim-base16" = {
+          input_path = "$XDG_CONFIG_HOME/nvim/lua/matugen-template.lua";
+          output_path = "$XDG_CONFIG_HOME/nvim/lua/matugen.lua";
+          post_hook = "pkill -SIGUSR1 nvim";
+        };
+      };
     };
   };
 
@@ -156,18 +161,6 @@
       };
       init.defaultBranch = "main";
       core.editor = "vim";
-    };
-  };
-
-  programs.ghostty = {
-    enable = true;
-    enableZshIntegration = true;
-    settings = {
-      font-family = "JetBrainsMono Nerd Font Mono";
-      cursor-style = "block";
-      cursor-style-blink = true;
-      confirm-close-surface = false;
-      shell-integration-features = "no-cursor";
     };
   };
 
