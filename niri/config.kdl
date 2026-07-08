@@ -92,8 +92,6 @@ layer-rule {
 }
 
 binds {
-    Mod+Shift+Slash { show-hotkey-overlay; }
-
     Mod+Q { spawn "ghostty"; }
     Mod+E { spawn "nautilus"; }
 
@@ -252,10 +250,12 @@ binds {
     XF86MonBrightnessUp { spawn-sh "noctalia msg brightness-up"; }
     XF86MonBrightnessDown { spawn-sh "noctalia msg brightness-down"; }
 
-    Mod+R { spawn-sh "noctalia msg panel-toggle launcher"; }
+    Mod+D { spawn-sh "noctalia msg panel-toggle launcher"; }
     Mod+Slash { spawn-sh "noctalia msg panel-toggle control-center"; }
     Mod+Escape { spawn-sh "noctalia msg panel-toggle session"; }
     Mod+P { spawn-sh "noctalia msg panel-toggle clipboard"; }
     Mod+W { spawn-sh "noctalia msg panel-toggle wallpaper"; }
     Mod+Shift+W { spawn-sh "noctalia msg wallpaper-random"; }
 }
+
+include "noctalia.kdl"

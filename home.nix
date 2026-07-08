@@ -10,6 +10,8 @@
     inputs.noctalia.homeModules.default
   ];
 
+  services.udiskie.enable = true;
+
   # Lenovo Thinkpad F4 Microphone LED problem
   systemd.user.services.micled-sync = {
     Unit = {
@@ -67,7 +69,6 @@
     lua-language-server
   ];
 
-  programs.fuzzel.enable = true;
   programs.zathura.enable = true;
   programs.firefox.enable = true;
   programs.qutebrowser.enable = true;
@@ -167,7 +168,6 @@
       cursor-style-blink = true;
       confirm-close-surface = false;
       shell-integration-features = "no-cursor";
-      # window-decoration = "none";
     };
   };
 
