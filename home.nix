@@ -67,6 +67,7 @@
     nautilus
     fastfetch
     qutebrowser
+    tree-sitter
     lua5_5_compat
     jetbrains.phpstorm
     xwayland-satellite

@@ -3,6 +3,7 @@ vim.pack.add({
     { src = "https://github.com/rafamadriz/friendly-snippets" },
     { src = "https://github.com/neovim/nvim-lspconfig" },
     { src = "https://github.com/RRethy/base16-nvim" },
+    { src = "https://github.com/romus204/tree-sitter-manager.nvim" },
 })
 
 local MiniFiles = require("mini.files")
@@ -42,8 +43,7 @@ MiniPick.setup()
 MiniExtra.setup()
 
 vim.keymap.set("n", "<leader>pf", function() MiniPick.builtin.files() end, { desc = "Mini file picker" })
-vim.keymap.set("n", "<leader>ps", function() MiniPick.builtin.grep({ pattern = vim.fn.expand("<cword>") }) end,
-    { desc = "Mini grep" })
+vim.keymap.set("n", "<leader>ps", function() MiniPick.builtin.grep({ pattern = vim.fn.expand("<cword>") }) end, { desc = "Mini grep" })
 vim.keymap.set("n", "<leader>vh", function() MiniPick.builtin.help() end, { desc = "Mini help" })
 
 vim.keymap.set("n", "<leader>xx", function() MiniExtra.pickers.diagnostic() end, { desc = "Mini picker diagnostic" })
@@ -63,3 +63,5 @@ local MiniDiff = require("mini.diff")
 MiniDiff.setup({
     source = MiniDiff.gen_source.git({ index = false }),
 })
+
+require("tree-sitter-manager").setup()
