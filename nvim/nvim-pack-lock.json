@@ -4,6 +4,10 @@
       "rev": "21233d5fd574439ae1e2f5e4bfbc574214f4ab3d",
       "src": "https://github.com/RRethy/base16-nvim"
     },
+    "cord.nvim": {
+      "rev": "b08b9245d2973eda91437d2de5c8746b9f510d31",
+      "src": "https://github.com/vyfor/cord.nvim"
+    },
     "friendly-snippets": {
       "rev": "6cd7280adead7f586db6fccbd15d2cac7e2188b9",
       "src": "https://github.com/rafamadriz/friendly-snippets"
