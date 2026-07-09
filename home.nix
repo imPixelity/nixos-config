@@ -90,6 +90,11 @@
     settings = ./noctalia/noctalia-config.toml;
   };
 
+  programs.opencode = {
+    enable = true;
+    tui.theme = "system";
+  };
+
   programs.vim = {
     enable = true;
     settings = {
