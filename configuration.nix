@@ -31,11 +31,6 @@
 
   hardware.bluetooth.enable = true;
 
-  fonts.packages = with pkgs; [
-    nerd-fonts.jetbrains-mono
-    corefonts
-  ];
-
   users.users.photon = {
     isNormalUser = true;
     shell = pkgs.zsh;
@@ -96,6 +91,19 @@
   services.udev.extraRules = ''
     SUBSYSTEM=="leds", KERNEL=="platform::micmute", RUN+="${pkgs.coreutils}/bin/chmod 666 /sys/class/leds/platform::micmute/brightness"
   '';
+
+  # OnlyOffice fonts problem
+  system.userActivationScripts = {
+    copy-fonts-local-share = {
+      text = ''
+        rm -rf ~/.local/share/fonts
+        mkdir -p ~/.local/share/fonts
+        cp ${pkgs.corefonts}/share/fonts/truetype/* ~/.local/share/fonts/
+        chmod 544 ~/.local/share/fonts
+        chmod 444 ~/.local/share/fonts/*
+      '';
+    };
+  };
 
   security.polkit.enable = true;
   security.rtkit.enable = true;

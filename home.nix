@@ -48,6 +48,8 @@
   home.homeDirectory = "/home/photon";
   home.stateVersion = "26.05";
 
+  fonts.fontconfig.enable = true;
+
   home.packages = with pkgs; [
     fd
     jq
@@ -75,15 +77,18 @@
 
     lua-language-server
 
+    nerd-fonts.jetbrains-mono
+    corefonts
+
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
+
+  programs.fastfetch.enable = true;
 
   programs.noctalia = {
     enable = true;
     settings = ./noctalia/noctalia-config.toml;
   };
-
-  programs.fastfetch.enable = true;
 
   programs.vim = {
     enable = true;
