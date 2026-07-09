@@ -24,6 +24,7 @@
     builtins.elem (lib.getName pkg) [
       "phpstorm"
       "discord"
+      "corefonts"
     ];
 
   time.timeZone = "Asia/Jakarta";
@@ -32,6 +33,7 @@
 
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
+    corefonts
   ];
 
   users.users.photon = {

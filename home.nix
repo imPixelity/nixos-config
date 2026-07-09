@@ -52,6 +52,7 @@
     fd
     jq
     gcc
+    scc
     wget
     btop
     curl
@@ -70,6 +71,7 @@
     lua5_5_compat
     jetbrains.phpstorm
     xwayland-satellite
+    onlyoffice-desktopeditors
 
     lua-language-server
 
