@@ -232,11 +232,11 @@
 
   # xdg.configFile."nvim".source = ./nvim;
   xdg.configFile."nvim".source =
-    config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-config/nvim";
+    config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-config/home/nvim";
 
   # xdg.configFile."niri/config.kdl".source = ./niri/config.kdl;
   xdg.configFile."niri/config.kdl".source =
-    config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-config/niri/config.kdl";
+    config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-config/home/niri/config.kdl";
 
   xdg.configFile."fastfetch/config.jsonc".source = ./fastfetch/config.jsonc;
 }

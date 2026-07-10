@@ -42,14 +42,14 @@
           specialArgs = { inherit inputs; };
 
           modules = [
-            ./configuration.nix
+            ./nixos/configuration.nix
 
             home-manager.nixosModules.home-manager
             {
               home-manager = {
                 useGlobalPkgs = true;
                 useUserPackages = true;
-                users.photon = import ./home.nix;
+                users.photon = import ./home/home.nix;
                 backupFileExtension = "backup";
                 extraSpecialArgs = { inherit inputs; };
               };
