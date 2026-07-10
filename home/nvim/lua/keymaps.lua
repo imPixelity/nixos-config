@@ -35,3 +35,6 @@ vim.keymap.set("n", "<leader>u", function()
     vim.cmd("packadd nvim.undotree")
     require("undotree").open()
 end, { desc = "Toggle undo tree" })
+
+-- Code Action
+vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Action" })
