@@ -30,6 +30,7 @@ vim.opt.colorcolumn = "100"
 vim.opt.signcolumn = "yes"
 vim.opt.termguicolors = true
 vim.opt.cursorline = true
+vim.opt.winborder = "rounded"
 
 -- File
 vim.opt.undofile = true
