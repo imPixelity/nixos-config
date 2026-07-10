@@ -75,6 +75,7 @@
     xwayland-satellite
     onlyoffice-desktopeditors
 
+    nixd
     lua-language-server
 
     nerd-fonts.jetbrains-mono
