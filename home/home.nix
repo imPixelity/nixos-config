@@ -96,6 +96,12 @@
     tui.theme = "system";
   };
 
+  programs.direnv = {
+    enable = true;
+    enableZshIntegration = true;
+    nix-direnv.enable = true;
+  };
+
   programs.vim = {
     enable = true;
     settings = {
