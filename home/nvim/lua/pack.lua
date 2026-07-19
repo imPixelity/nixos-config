@@ -5,5 +5,4 @@ vim.pack.add({
     { src = "https://github.com/RRethy/base16-nvim" },
     { src = "https://github.com/romus204/tree-sitter-manager.nvim" },
     { src = "https://github.com/vyfor/cord.nvim" },
-    { src = "https://github.com/scottmckendry/cyberdream.nvim" },
 })
