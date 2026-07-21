@@ -45,5 +45,4 @@ vim.lsp.enable({
     "lua_ls",
     "nixd",
     "gopls",
-    "postgres_lsp"
 })
