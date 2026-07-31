@@ -37,6 +37,7 @@
     extraGroups = [
       "wheel"
       "networkmanager"
+      "podman"
     ];
   };
 
@@ -130,6 +131,13 @@
       xdg-desktop-portal-gtk
     ];
     # config.common.default = [ "gnome" "gtk" ];
+  };
+
+  virtualisation.containers.enable = true;
+  virtualisation.podman = {
+    enable = true;
+    dockerCompat = true;
+    defaultNetwork.settings.dns_enabled = true;
   };
 
   system.stateVersion = "26.05";
