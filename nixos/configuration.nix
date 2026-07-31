@@ -122,6 +122,7 @@
   environment.variables.EDITOR = "vim";
   environment.systemPackages = with pkgs; [
     brightnessctl
+    docker-compose
   ];
 
   xdg.portal = {
