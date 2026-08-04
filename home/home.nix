@@ -55,6 +55,7 @@
     jq
     gcc
     scc
+    mpv
     wget
     btop
     curl
