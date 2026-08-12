@@ -71,8 +71,10 @@
     nautilus
     qutebrowser
     tree-sitter
+    ffmpeg-full
     lua5_5_compat
     jetbrains.phpstorm
+    jetbrains.goland
     xwayland-satellite
     onlyoffice-desktopeditors
 
