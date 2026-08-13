@@ -70,6 +70,7 @@
     zathura
     nautilus
     qutebrowser
+    yt-dlp
     tree-sitter
     ffmpeg-full
     lua5_5_compat
