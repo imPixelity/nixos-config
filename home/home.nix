@@ -69,10 +69,10 @@
     firefox
     zathura
     nautilus
-    qutebrowser
     yt-dlp
     tree-sitter
     ffmpeg-full
+    wakatime-cli
     lua5_5_compat
     jetbrains.phpstorm
     jetbrains.goland
