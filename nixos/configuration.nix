@@ -22,6 +22,8 @@
   nixpkgs.config.allowUnfreePredicate =
     pkg:
     builtins.elem (lib.getName pkg) [
+      "steam"
+      "steam-unwrapped"
       "phpstorm"
       "goland"
       "discord"
@@ -63,6 +65,7 @@
 
   programs.niri.enable = true;
   programs.zsh.enable = true;
+  programs.steam.enable = true;
 
   services.gvfs.enable = true;
   services.upower.enable = true;
