@@ -65,7 +65,12 @@
 
   programs.niri.enable = true;
   programs.zsh.enable = true;
-  programs.steam.enable = true;
+  programs.steam = {
+    enable = true;
+    extraCompatPackages = with pkgs; [
+      proton-ge-bin
+    ];
+  };
 
   services.gvfs.enable = true;
   services.upower.enable = true;
