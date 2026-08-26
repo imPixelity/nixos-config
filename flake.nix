@@ -2,6 +2,8 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
 
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+
     home-manager = {
       url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -21,6 +23,7 @@
     {
       self,
       nixpkgs,
+      nixpkgs-unstable,
       home-manager,
       zen-browser,
       noctalia,
@@ -29,6 +32,11 @@
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
+      pkgs-unstable = import nixpkgs-unstable {
+        inherit system;
+
+        config.allowUnfree = true;
+      };
     in
     {
       formatter.${system} = pkgs.nixfmt-tree;
@@ -37,7 +45,9 @@
         nixos = nixpkgs.lib.nixosSystem {
           inherit system;
 
-          specialArgs = { inherit inputs; };
+          specialArgs = {
+            inherit inputs pkgs-unstable;
+          };
 
           modules = [
             ./nixos/configuration.nix
@@ -49,7 +59,9 @@
                 useUserPackages = true;
                 users.photon = import ./home/home.nix;
                 backupFileExtension = "backup";
-                extraSpecialArgs = { inherit inputs; };
+                extraSpecialArgs = {
+                  inherit inputs pkgs-unstable;
+                };
               };
             }
           ];

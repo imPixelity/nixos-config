@@ -2,6 +2,7 @@
   inputs,
   config,
   pkgs,
+  pkgs-unstable,
   ...
 }:
 
@@ -50,42 +51,44 @@
 
   fonts.fontconfig.enable = true;
 
-  home.packages = with pkgs; [
-    fd
-    jq
-    gcc
-    scc
-    mpv
-    wget
-    btop
-    curl
-    tree
-    unzip
-    neovim
-    ghostty
-    ripgrep
-    gnumake
-    discord
-    firefox
-    zathura
-    nautilus
-    yt-dlp
-    tree-sitter
-    ffmpeg-full
-    wakatime-cli
-    lua5_5_compat
-    jetbrains.phpstorm
-    jetbrains.goland
-    xwayland-satellite
-    onlyoffice-desktopeditors
+  home.packages = [
+    pkgs.fd
+    pkgs.jq
+    pkgs.gcc
+    pkgs.scc
+    pkgs.mpv
+    pkgs.wget
+    pkgs.btop
+    pkgs.curl
+    pkgs.tree
+    pkgs.aria2
+    pkgs.unzip
+    pkgs.neovim
+    pkgs.ghostty
+    pkgs.ripgrep
+    pkgs.gnumake
+    pkgs.discord
+    pkgs.firefox
+    pkgs.zathura
+    pkgs.nautilus
+    pkgs.yt-dlp
+    pkgs.tree-sitter
+    pkgs.ffmpeg-full
+    pkgs.wakatime-cli
+    pkgs.lua5_5_compat
+    pkgs.cloudflare-warp
+    pkgs.xwayland-satellite
+    pkgs.onlyoffice-desktopeditors
 
-    nixd
-    lua-language-server
+    pkgs.nixd
+    pkgs.lua-language-server
 
-    nerd-fonts.jetbrains-mono
-    corefonts
+    pkgs.nerd-fonts.jetbrains-mono
+    pkgs.corefonts
 
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
+
+    pkgs-unstable.jetbrains-toolbox
   ];
 
   programs.fastfetch.enable = true;

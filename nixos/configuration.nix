@@ -19,16 +19,7 @@
   networking.firewall.enable = true;
   networking.networkmanager.enable = true;
 
-  nixpkgs.config.allowUnfreePredicate =
-    pkg:
-    builtins.elem (lib.getName pkg) [
-      "steam"
-      "steam-unwrapped"
-      "phpstorm"
-      "goland"
-      "discord"
-      "corefonts"
-    ];
+  nixpkgs.config.allowUnfree = true;
 
   time.timeZone = "Asia/Jakarta";
 
@@ -40,6 +31,7 @@
     extraGroups = [
       "wheel"
       "networkmanager"
+      "kvm"
       "podman"
     ];
   };
@@ -76,6 +68,7 @@
   services.upower.enable = true;
   services.udisks2.enable = true;
   services.openssh.enable = true;
+  services.cloudflare-warp.enable = true;
   services.gnome.gnome-keyring.enable = true;
   services.power-profiles-daemon.enable = true;
   # services.printing.enable = true;
