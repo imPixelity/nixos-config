@@ -75,6 +75,7 @@
     pkgs.tree-sitter
     pkgs.ffmpeg-full
     pkgs.wakatime-cli
+    pkgs.android-tools
     pkgs.lua5_5_compat
     pkgs.cloudflare-warp
     pkgs.xwayland-satellite
