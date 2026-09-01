@@ -63,6 +63,7 @@
     pkgs.tree
     pkgs.aria2
     pkgs.unzip
+    pkgs.scrcpy
     pkgs.neovim
     pkgs.ghostty
     pkgs.ripgrep
