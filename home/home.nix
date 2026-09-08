@@ -71,6 +71,7 @@
     pkgs.discord
     pkgs.firefox
     pkgs.zathura
+    pkgs.mendeley
     pkgs.nautilus
     pkgs.yt-dlp
     pkgs.tree-sitter
