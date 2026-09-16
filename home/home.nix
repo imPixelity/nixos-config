@@ -61,6 +61,7 @@
     pkgs.btop
     pkgs.curl
     pkgs.tree
+    pkgs.mdcat
     pkgs.aria2
     pkgs.unzip
     pkgs.scrcpy
