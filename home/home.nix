@@ -73,6 +73,7 @@
     pkgs.firefox
     pkgs.zathura
     pkgs.mendeley
+    pkgs.usbutils
     pkgs.nautilus
     pkgs.yt-dlp
     pkgs.tree-sitter
@@ -92,6 +93,7 @@
 
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
 
+    pkgs-unstable.opencode
     pkgs-unstable.jetbrains-toolbox
   ];
 
@@ -100,11 +102,6 @@
   programs.noctalia = {
     enable = true;
     settings = ./noctalia/noctalia-config.toml;
-  };
-
-  programs.opencode = {
-    enable = true;
-    tui.theme = "system";
   };
 
   programs.direnv = {

@@ -71,8 +71,13 @@
   services.cloudflare-warp.enable = true;
   services.gnome.gnome-keyring.enable = true;
   services.power-profiles-daemon.enable = true;
-  # services.printing.enable = true;
   # services.libinput.enable = true;
+
+  services.printing = {
+    enable = true;
+    drivers = [ pkgs.epson_201310w ];
+  };
+
   services.greetd = {
     enable = true;
     settings = {
