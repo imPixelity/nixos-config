@@ -66,6 +66,7 @@
     pkgs.unzip
     pkgs.scrcpy
     pkgs.neovim
+    pkgs.yt-dlp
     pkgs.ghostty
     pkgs.ripgrep
     pkgs.gnumake
@@ -75,9 +76,9 @@
     pkgs.mendeley
     pkgs.usbutils
     pkgs.nautilus
-    pkgs.yt-dlp
     pkgs.tree-sitter
     pkgs.ffmpeg-full
+    pkgs.projectlibre
     pkgs.wakatime-cli
     pkgs.android-tools
     pkgs.lua5_5_compat

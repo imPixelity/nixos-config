@@ -68,6 +68,7 @@
   services.upower.enable = true;
   services.udisks2.enable = true;
   services.openssh.enable = true;
+  services.flatpak.enable = true;
   services.cloudflare-warp.enable = true;
   services.gnome.gnome-keyring.enable = true;
   services.power-profiles-daemon.enable = true;
