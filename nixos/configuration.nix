@@ -33,6 +33,7 @@
       "networkmanager"
       "kvm"
       "podman"
+      "vboxusers"
     ];
   };
 
@@ -57,12 +58,6 @@
 
   programs.niri.enable = true;
   programs.zsh.enable = true;
-  programs.steam = {
-    enable = true;
-    extraCompatPackages = with pkgs; [
-      proton-ge-bin
-    ];
-  };
 
   services.gvfs.enable = true;
   services.upower.enable = true;
@@ -142,7 +137,9 @@
     # config.common.default = [ "gnome" "gtk" ];
   };
 
+
   virtualisation.containers.enable = true;
+  virtualisation.virtualbox.host.enable = true;
   virtualisation.podman = {
     enable = true;
     dockerCompat = true;
